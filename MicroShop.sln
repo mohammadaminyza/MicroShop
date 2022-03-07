@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6A96C787-12E8-4BA6-8750-05D0A97E3BED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Catalogs", "Catalogs", "{C3921C25-C00D-4CB6-9D18-7C9888A103A0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01. Core", "01. Core", "{DAC23C32-24A4-4A91-B070-B860F8FFB934}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02. Infra", "02. Infra", "{83684982-C1D4-41AC-B522-A3067DD79274}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03. Endpoint", "03. Endpoint", "{71DAB7DB-13AE-4003-9B22-DD97B09720F2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{157B032B-CF23-4077-A6F9-C01476F524C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.EndpointApi", "Services\Catalogs\03. Endpoint\MicroShop.Catalogs.EndpointApi\MicroShop.Catalogs.EndpointApi.csproj", "{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Common", "Common\MicroShop.Common\MicroShop.Common.csproj", "{28BE5783-F510-41C2-B75F-E7965728A09E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28BE5783-F510-41C2-B75F-E7965728A09E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28BE5783-F510-41C2-B75F-E7965728A09E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28BE5783-F510-41C2-B75F-E7965728A09E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28BE5783-F510-41C2-B75F-E7965728A09E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C3921C25-C00D-4CB6-9D18-7C9888A103A0} = {6A96C787-12E8-4BA6-8750-05D0A97E3BED}
+		{DAC23C32-24A4-4A91-B070-B860F8FFB934} = {C3921C25-C00D-4CB6-9D18-7C9888A103A0}
+		{83684982-C1D4-41AC-B522-A3067DD79274} = {C3921C25-C00D-4CB6-9D18-7C9888A103A0}
+		{71DAB7DB-13AE-4003-9B22-DD97B09720F2} = {C3921C25-C00D-4CB6-9D18-7C9888A103A0}
+		{0B0ABD19-DBB5-4C5B-8010-FAD9BAA7D29B} = {71DAB7DB-13AE-4003-9B22-DD97B09720F2}
+		{28BE5783-F510-41C2-B75F-E7965728A09E} = {157B032B-CF23-4077-A6F9-C01476F524C5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FD9E6320-B6E7-4005-8A8F-95D45E5B0B8F}
+	EndGlobalSection
+EndGlobal
