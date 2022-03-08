@@ -21,17 +21,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Common", "src\Com
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C1D85DA1-C393-47BB-94B7-E7C9C1943C8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Core.Domain", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.Domain\MicroShop.Catalogs.Core.Domain.csproj", "{A89B7230-5530-43BE-9684-0283C6EA259A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Core.Domain", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.Domain\MicroShop.Catalogs.Core.Domain.csproj", "{A89B7230-5530-43BE-9684-0283C6EA259A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Core.ApplicationServices", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.ApplicationServices\MicroShop.Catalogs.Core.ApplicationServices.csproj", "{B7C3134C-6470-4FB5-A11C-9DF51993BBC2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Core.ApplicationServices", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.ApplicationServices\MicroShop.Catalogs.Core.ApplicationServices.csproj", "{B7C3134C-6470-4FB5-A11C-9DF51993BBC2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BE7A6ACF-815C-48B2-8F04-A02DB08D533F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mail", "Mail", "{5E0DD632-9933-4615-8ED3-9DC28A803238}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Data.MongoCommand", "src\Services\Catalogs\02. Infra\Data\MicroShop.Catalogs.Data.MongoCommand\MicroShop.Catalogs.Data.MongoCommand.csproj", "{9E5AF950-3DD1-46FF-AA6C-DDB1E901C315}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Data.MongoCommand", "src\Services\Catalogs\02. Infra\Data\MicroShop.Catalogs.Data.MongoCommand\MicroShop.Catalogs.Data.MongoCommand.csproj", "{9E5AF950-3DD1-46FF-AA6C-DDB1E901C315}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Infra.Data.MongoQueries", "src\Services\Catalogs\02. Infra\Data\MicroShop.Catalogs.Infra.Data.MongoQueries\MicroShop.Catalogs.Infra.Data.MongoQueries.csproj", "{930A00F2-6662-4750-9E63-6ECCD89F5548}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Infra.Data.MongoQueries", "src\Services\Catalogs\02. Infra\Data\MicroShop.Catalogs.Infra.Data.MongoQueries\MicroShop.Catalogs.Infra.Data.MongoQueries.csproj", "{930A00F2-6662-4750-9E63-6ECCD89F5548}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Core.Contracts", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.Contracts\MicroShop.Catalogs.Core.Contracts.csproj", "{20F5B9B1-671B-440A-95ED-3CDCD711BB11}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{930A00F2-6662-4750-9E63-6ECCD89F5548}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{930A00F2-6662-4750-9E63-6ECCD89F5548}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{930A00F2-6662-4750-9E63-6ECCD89F5548}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -82,6 +88,7 @@ Global
 		{5E0DD632-9933-4615-8ED3-9DC28A803238} = {83684982-C1D4-41AC-B522-A3067DD79274}
 		{9E5AF950-3DD1-46FF-AA6C-DDB1E901C315} = {BE7A6ACF-815C-48B2-8F04-A02DB08D533F}
 		{930A00F2-6662-4750-9E63-6ECCD89F5548} = {BE7A6ACF-815C-48B2-8F04-A02DB08D533F}
+		{20F5B9B1-671B-440A-95ED-3CDCD711BB11} = {DAC23C32-24A4-4A91-B070-B860F8FFB934}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD9E6320-B6E7-4005-8A8F-95D45E5B0B8F}
