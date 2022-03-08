@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MicroShop.Catalogs.Core.Domain\MicroShop.Catalogs.Core.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

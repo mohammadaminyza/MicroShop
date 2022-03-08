@@ -14,4 +14,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\01. Core\MicroShop.Catalogs.Core.ApplicationServices\MicroShop.Catalogs.Core.ApplicationServices.csproj" />
+    <ProjectReference Include="..\..\02. Infra\Data\MicroShop.Catalogs.Data.MongoCommand\MicroShop.Catalogs.Data.MongoCommand.csproj" />
+    <ProjectReference Include="..\..\02. Infra\Data\MicroShop.Catalogs.Infra.Data.MongoQueries\MicroShop.Catalogs.Infra.Data.MongoQueries.csproj" />
+  </ItemGroup>
+
 </Project>
