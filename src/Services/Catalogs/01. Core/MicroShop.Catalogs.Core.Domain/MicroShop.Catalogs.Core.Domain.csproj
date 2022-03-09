@@ -14,6 +14,7 @@
     <Folder Include="Common\Enums\" />
     <Folder Include="Common\ValueObjects\" />
     <Folder Include="Products\Entities\" />
+    <Folder Include="Products\Events\" />
     <Folder Include="Products\QueryModels\Inputs\" />
     <Folder Include="Products\QueryModels\Outputs\" />
     <Folder Include="Products\ValueObjects\" />
