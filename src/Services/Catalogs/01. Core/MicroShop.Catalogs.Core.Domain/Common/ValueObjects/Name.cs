@@ -1,4 +1,5 @@
-﻿using MicroShop.Common.Exceptions;
+﻿using Ardalis.GuardClauses;
+using MicroShop.Common.Exceptions;
 using MicroShop.Common.Utilities;
 using MicroShop.Common.ValueObjects;
 
@@ -14,15 +15,10 @@ public class Name : BaseValueObject<Name>
     public static explicit operator string(Name name) => name.Value;
     public static implicit operator Name(string name) => new(name);
 
-    private Name()
-    {
-        Value = string.Empty;
-    }
-
     public Name(string value)
     {
-        if (value.IsNullOrEmpty())
-            throw new InvalidValueObjectStateException("Value Can't Be NullOrEmpty");
+        Guard.Against.NullOrEmpty(value,
+            nameof(Value), ResourceKeys.InvalidNullOrEmpty, new InvalidValueObjectStateException(ResourceKeys.InvalidNullOrEmpty));
 
         Value = value;
     }

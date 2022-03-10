@@ -11,7 +11,7 @@ public abstract class BaseValueObject<TValueObject> : IEquatable<TValueObject>
     public abstract bool ObjectIsEqual(TValueObject otherObject);
     public abstract int ObjectGetHashCode();
 
-    public static bool operator ==(BaseValueObject<TValueObject> right, BaseValueObject<TValueObject> left)
+    public static bool operator ==(BaseValueObject<TValueObject>? right, BaseValueObject<TValueObject>? left)
     {
         if (right is null && left is null)
             return true;
