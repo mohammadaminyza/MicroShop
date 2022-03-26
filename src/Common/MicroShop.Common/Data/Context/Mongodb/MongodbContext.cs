@@ -37,7 +37,10 @@ public abstract class MongodbContext
 
     private void AddPropertiesMongodbCollection()
     {
-        var properties = this.GetType().GetProperties().ToList();
+        var properties = this.GetType()
+            .GetProperties()
+            .Where(p => p.CanWrite)
+            .ToList();
 
         foreach (var property in properties)
         {
