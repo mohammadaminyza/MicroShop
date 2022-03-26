@@ -10,4 +10,8 @@
     <ProjectReference Include="..\MicroShop.Catalogs.Core.Contracts\MicroShop.Catalogs.Core.Contracts.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Products\" />
+  </ItemGroup>
+
 </Project>

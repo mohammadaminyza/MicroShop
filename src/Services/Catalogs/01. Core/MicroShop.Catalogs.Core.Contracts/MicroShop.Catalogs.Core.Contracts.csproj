@@ -1,13 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\MicroShop.Catalogs.Core.Domain\MicroShop.Catalogs.Core.Domain.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\MicroShop.Catalogs.Core.Domain\MicroShop.Catalogs.Core.Domain.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Products\" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="MicroShop.Common.Data.Repository"/>
+	</ItemGroup>
 
 </Project>

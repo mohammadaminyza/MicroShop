@@ -1,6 +1,4 @@
-﻿using MicroShop.Common.Events;
-
-namespace MicroShop.Catalogs.Core.Domain.Products.Events;
+﻿namespace MicroShop.Catalogs.Core.Domain.Products.Events;
 
 public class ProductCreated : IDomainEvent
 {

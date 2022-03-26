@@ -10,12 +10,31 @@
 		<Folder Include="Entities\" />
 		<Folder Include="Events\" />
 		<Folder Include="Exceptions\" />
+		<Folder Include="Extensions\" />
+		<Folder Include="IoC\" />
 		<Folder Include="Utilities\" />
 		<Folder Include="ValueObjects\" />
 	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="JetBrains.Annotations" Version="2021.3.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.3" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.3">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="MongoDB.Driver" Version="2.15.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Reference Include="Microsoft.AspNetCore.Mvc">
+	    <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.AspNetCore.App.Ref\6.0.2\ref\net6.0\Microsoft.AspNetCore.Mvc.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Using Include="MongoDB.Driver" />
 	</ItemGroup>
 
 </Project>

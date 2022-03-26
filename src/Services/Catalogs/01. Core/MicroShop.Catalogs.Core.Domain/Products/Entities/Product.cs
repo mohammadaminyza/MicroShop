@@ -1,7 +1,5 @@
 ﻿using MicroShop.Catalogs.Core.Domain.Common.ValueObjects;
 using MicroShop.Catalogs.Core.Domain.Products.Events;
-using MicroShop.Common.Entities;
-using MicroShop.Common.ValueObjects;
 
 namespace MicroShop.Catalogs.Core.Domain.Products.Entities;
 
