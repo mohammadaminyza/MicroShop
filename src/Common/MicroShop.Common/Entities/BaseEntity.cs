@@ -4,5 +4,5 @@ namespace MicroShop.Common.Entities;
 
 public class BaseEntity
 {
-    public Id? Id { get; set; }
+    public Id Id { get; set; } = null!;
 }

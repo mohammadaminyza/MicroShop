@@ -33,7 +33,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Data.Mon
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Infra.Data.MongoQueries", "src\Services\Catalogs\02. Infra\Data\MicroShop.Catalogs.Infra.Data.MongoQueries\MicroShop.Catalogs.Infra.Data.MongoQueries.csproj", "{930A00F2-6662-4750-9E63-6ECCD89F5548}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroShop.Catalogs.Core.Contracts", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.Contracts\MicroShop.Catalogs.Core.Contracts.csproj", "{20F5B9B1-671B-440A-95ED-3CDCD711BB11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroShop.Catalogs.Core.Contracts", "src\Services\Catalogs\01. Core\MicroShop.Catalogs.Core.Contracts\MicroShop.Catalogs.Core.Contracts.csproj", "{20F5B9B1-671B-440A-95ED-3CDCD711BB11}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{EAB99598-F245-45E2-8B73-9A6F84036E5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{8345D9D2-5A56-444A-8601-25CDBA9C7755}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,10 @@ Global
 		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20F5B9B1-671B-440A-95ED-3CDCD711BB11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB99598-F245-45E2-8B73-9A6F84036E5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB99598-F245-45E2-8B73-9A6F84036E5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB99598-F245-45E2-8B73-9A6F84036E5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB99598-F245-45E2-8B73-9A6F84036E5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,6 +97,7 @@ Global
 		{9E5AF950-3DD1-46FF-AA6C-DDB1E901C315} = {BE7A6ACF-815C-48B2-8F04-A02DB08D533F}
 		{930A00F2-6662-4750-9E63-6ECCD89F5548} = {BE7A6ACF-815C-48B2-8F04-A02DB08D533F}
 		{20F5B9B1-671B-440A-95ED-3CDCD711BB11} = {DAC23C32-24A4-4A91-B070-B860F8FFB934}
+		{EAB99598-F245-45E2-8B73-9A6F84036E5D} = {C1D85DA1-C393-47BB-94B7-E7C9C1943C8D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {FD9E6320-B6E7-4005-8A8F-95D45E5B0B8F}

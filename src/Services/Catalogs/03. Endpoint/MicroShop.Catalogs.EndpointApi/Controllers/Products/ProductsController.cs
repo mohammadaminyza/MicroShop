@@ -1,26 +1,17 @@
-﻿using MicroShop.Catalogs.Core.ApplicationServices.Products;
-using MicroShop.Catalogs.Core.Contracts.Products;
-using Microsoft.AspNetCore.Http;
+﻿using MicroShop.Catalogs.Core.ApplicationServices.Products.Commands.CreateProduct;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MicroShop.Catalogs.EndpointApi.Controllers.Products
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductsController : ControllerBase
+    public class ProductsController : BaseController
     {
-        private readonly AddProductServiceTest _addProductServiceTest;
 
-        public ProductsController(AddProductServiceTest addProductServiceTest)
+        [HttpPost("create")]
+        public async Task<IActionResult> AddProduct(CreateProductCommand productCommand)
         {
-            _addProductServiceTest = addProductServiceTest;
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> AddProduct()
-        {
-            await _addProductServiceTest.Handle();
-            return Ok();
+            return await Create(productCommand);
         }
     }
 }

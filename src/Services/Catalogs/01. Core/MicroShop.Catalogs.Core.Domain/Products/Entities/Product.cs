@@ -7,7 +7,7 @@ public class Product : AggregateRoot
 {
     #region Properties
 
-    public Name? Name { get; set; }
+    public Name Name { get; set; }
 
     #endregion
 
@@ -15,6 +15,7 @@ public class Product : AggregateRoot
 
     private Product()
     {
+        Name = null!;
     }
 
     public Product(Id id, Name name)

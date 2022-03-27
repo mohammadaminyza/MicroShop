@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  MonogoDatabase:
+    image: mongo
+    container_name: "Mongodb"
+    ports:
+    - "46597:27017"
+
+  microshop.catalogs.endpointapi:
+    image: ${DOCKER_REGISTRY-}microshopcatalogsendpointapi
+    container_name: "Catalog.API"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - "CATALOG_ConnectionString=mongodb://localhost:46597/CatalogDb"
+    ports:
+      - "65190:80"
+      - "65191:443"
+    depends_on:
+        - MonogoDatabase
+    build:
+      context: .
+      dockerfile: src/Services/Catalogs/03. Endpoint/MicroShop.Catalogs.EndpointApi/Dockerfile
