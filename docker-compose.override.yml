@@ -1,13 +1,22 @@
 version: '3.4'
 
 services:
+  MonogoDatabase:
+    container_name: "Mongodb"
+    ports:
+    - "46597:27017"
+
   microshop.catalogs.endpointapi:
+    container_name: "Catalog.API"
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=https://+:443;http://+:80
+      - "ConnectionStrings:Catalog_ConnectionString=mongodb://MonogoDatabase/CatalogDb"
     ports:
       - "80"
       - "443"
+    depends_on:
+      - MonogoDatabase
     volumes:
       - ${APPDATA}/Microsoft/UserSecrets:/root/.microsoft/usersecrets:ro
       - ${APPDATA}/ASP.NET/Https:/root/.aspnet/https:ro
