@@ -13,26 +13,29 @@ public class MongodbUnitOfWork<TContext> : IUnitOfWork where TContext : MongodbC
 
     public void BeginTransaction()
     {
-        throw new NotImplementedException();
+        _dbContext.StartTransaction();
     }
 
     public void CommitTransaction()
     {
-        throw new NotImplementedException();
+        _dbContext.CommitTransaction();
     }
 
     public void RollbackTransaction()
     {
-        throw new NotImplementedException();
+        _dbContext.AbortTransaction();
     }
 
     public int Commit()
     {
-        throw new NotImplementedException();
+        _dbContext.CommitTransaction();
+
+        return 0;
     }
 
     public async Task<int> CommitAsync()
     {
-        throw new NotImplementedException();
+        await _dbContext.CommitTransactionAsync();
+        return 0;
     }
 }
