@@ -4,8 +4,14 @@ namespace MicroShop.Common.Data.Context.Mongodb;
 
 public abstract class MongodbContext
 {
+    #region Fields
+
     private readonly IMongoDatabase _mongodbDatabase;
     private readonly MongodbContextOption _contextOption;
+
+    #endregion
+
+    #region Ctor
 
     protected MongodbContext(MongodbContextOption option)
     {
@@ -28,12 +34,20 @@ public abstract class MongodbContext
         AddPropertiesMongodbCollection();
     }
 
+    #endregion
+
+    #region MainContextMethod
+
     public IMongoCollection<TEntity> Set<TEntity>()
     {
         var collectionName = GetCollectionName<TEntity>();
 
         return _mongodbDatabase.GetCollection<TEntity>(collectionName);
     }
+
+    #endregion
+
+    #region Private Methods
 
     private void AddPropertiesMongodbCollection()
     {
@@ -74,4 +88,6 @@ public abstract class MongodbContext
     {
         return this.GetType().GetMethod("GetMongodbCollection")?.MakeGenericMethod(type).Invoke(this, null);
     }
+
+    #endregion
 }
