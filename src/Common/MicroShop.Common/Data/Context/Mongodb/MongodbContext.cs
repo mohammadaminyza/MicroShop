@@ -8,6 +8,7 @@ public abstract class MongodbContext
 
     private readonly IMongoDatabase _mongodbDatabase;
     private readonly MongodbContextOption _contextOption;
+    private IClientSessionHandle _session;
 
     #endregion
 
@@ -43,6 +44,27 @@ public abstract class MongodbContext
         var collectionName = GetCollectionName<TEntity>();
 
         return _mongodbDatabase.GetCollection<TEntity>(collectionName);
+    }
+
+    public void StartTransaction()
+    {
+        _session = _mongodbDatabase.Client.StartSession();
+        _session.StartTransaction();
+    }
+
+    public void AbortTransaction()
+    {
+        _session.AbortTransaction();
+    }
+
+    public void CommitTransaction()
+    {
+        _session.CommitTransaction();
+    }
+
+    public async Task CommitTransactionAsync()
+    {
+        await _session.CommitTransactionAsync();
     }
 
     #endregion
