@@ -12,7 +12,7 @@ public static class CollectionExtension
     }
     public static async Task<bool> AnyAsync<TEntity>(this IMongoCollection<TEntity> collection, Expression<Func<TEntity, bool>> expression)
     {
-        return await collection.FindSync(expression).AnyAsync();
+        return await (await collection.FindAsync(expression)).AnyAsync();
     }
 
     #endregion
