@@ -3,11 +3,12 @@ using MicroShop.Common.Data.UnitOfWork;
 using MicroShop.Common.Entities;
 using MicroShop.Common.ValueObjects;
 using System.Linq.Expressions;
-using JetBrains.Annotations;
 
 namespace MicroShop.Common.Data.Repository;
 
-public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWork<TDbContext>, ICommandRepository<TEntity> where TEntity : AggregateRoot where TDbContext : MongodbContext
+public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWork<TDbContext>, ICommandRepository<TEntity>
+    where TEntity : AggregateRoot
+    where TDbContext : MongodbContext
 {
     private readonly TDbContext _dbContext;
 
@@ -18,7 +19,7 @@ public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWo
 
     public void Insert(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<TEntity>().InsertOne(entity);
     }
 
     public async Task InsertAsync(TEntity entity)
@@ -28,51 +29,51 @@ public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWo
 
     public void InsertRange(IEnumerable<TEntity> entities)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<TEntity>().InsertMany(entities);
     }
 
     public async Task InsertRangeAsync(IEnumerable<TEntity> entities)
     {
-        throw new NotImplementedException();
+        await _dbContext.Set<TEntity>().InsertManyAsync(entities);
     }
 
     public void Delete(Id id)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<TEntity>().DeleteOne(e => e.Id.Equals(id));
     }
 
     public void Delete(TEntity entity)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<TEntity>().DeleteOne(e => e.Id.Equals(entity.Id));
     }
 
     public void DeleteGraph(long id)
     {
-        throw new NotImplementedException();
+        throw new NotSupportedException();
     }
 
     public void DeleteRange(IEnumerable<TEntity> entities)
     {
-        throw new NotImplementedException();
+        _dbContext.Set<TEntity>().DeleteMany(e => entities.Any(a => a.Id.Equals(e.Id)));
     }
 
     public TEntity GetGraph(Id id)
     {
-        throw new NotImplementedException();
+        return _dbContext.Set<TEntity>().FindSync(e => e.Id.Equals(id)).FirstOrDefault();
     }
 
-    public async Task<TEntity> GetGraphAsync(Id businessId)
+    public async Task<TEntity> GetGraphAsync(Id id)
     {
-        throw new NotImplementedException();
+        return await (await _dbContext.Set<TEntity>().FindAsync(e => e.Id.Equals(id))).FirstOrDefaultAsync();
     }
 
     public bool Exists(Expression<Func<TEntity, bool>> expression)
     {
-        throw new NotImplementedException();
+        return _dbContext.Set<TEntity>().Any(expression);
     }
 
     public async Task<bool> ExistsAsync(Expression<Func<TEntity, bool>> expression)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Set<TEntity>().AnyAsync(expression);
     }
 }

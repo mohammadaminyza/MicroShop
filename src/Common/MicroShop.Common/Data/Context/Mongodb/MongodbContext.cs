@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Linq.Expressions;
+using System.Reflection;
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
@@ -37,7 +38,7 @@ public abstract class MongodbContext
 
     #endregion
 
-    #region MainContextMethod
+    #region Collection
 
     public IMongoCollection<TEntity> Set<TEntity>()
     {
@@ -45,6 +46,11 @@ public abstract class MongodbContext
 
         return _mongodbDatabase.GetCollection<TEntity>(collectionName);
     }
+
+
+    #endregion
+
+    #region Transactions
 
     public void StartTransaction()
     {
