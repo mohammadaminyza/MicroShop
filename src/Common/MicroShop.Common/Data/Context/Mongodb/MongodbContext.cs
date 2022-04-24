@@ -9,7 +9,7 @@ public abstract class MongodbContext
 
     private readonly IMongoDatabase _mongodbDatabase;
     private readonly MongodbContextOption _contextOption;
-    private IClientSessionHandle _session;
+    private IClientSessionHandle? _session;
 
     #endregion
 
@@ -60,17 +60,26 @@ public abstract class MongodbContext
 
     public void AbortTransaction()
     {
-        _session.AbortTransaction();
+        SessionHandlerValidation();
+        _session!.AbortTransaction();
     }
 
     public void CommitTransaction()
     {
-        _session.CommitTransaction();
+        SessionHandlerValidation();
+        _session!.CommitTransaction();
     }
 
     public async Task CommitTransactionAsync()
     {
-        await _session.CommitTransactionAsync();
+        SessionHandlerValidation();
+        await _session!.CommitTransactionAsync();
+    }
+
+    private void SessionHandlerValidation()
+    {
+        if (_session == null)
+            throw new Exception("Need Start Transaction First");
     }
 
     #endregion

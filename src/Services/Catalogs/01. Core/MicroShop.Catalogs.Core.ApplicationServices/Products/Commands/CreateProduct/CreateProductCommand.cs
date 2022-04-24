@@ -4,5 +4,5 @@ namespace MicroShop.Catalogs.Core.ApplicationServices.Products.Commands.CreatePr
 
 public class CreateProductCommand : ICommand
 {
-    public string? Name { get; set; }
+    public string Name { get; set; } = null!;
 }
