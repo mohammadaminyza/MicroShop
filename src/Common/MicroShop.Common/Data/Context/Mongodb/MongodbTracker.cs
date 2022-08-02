@@ -4,8 +4,8 @@ public class MongodbTracker
 {
     #region Fields
 
-    private readonly HashSet<Func<Task>> _mongodbActions;
-    public HashSet<Func<Task>> MongodbActions => _mongodbActions;
+    private readonly HashSet<Func<Task>> _mongodbCommands;
+    public HashSet<Func<Task>> MongodbCommands=> _mongodbCommands;
 
     #endregion
 
@@ -13,21 +13,25 @@ public class MongodbTracker
 
     public MongodbTracker()
     {
-        _mongodbActions = new HashSet<Func<Task>>();
+        _mongodbCommands = new HashSet<Func<Task>>();
     }
 
     #endregion
 
     #region Methods
 
-    public void AddAction(Func<Task> acion)
+    /// <summary>
+    /// Add Command To MongodbFunctions
+    /// </summary>
+    /// <param name="command"></param>
+    public void AddCommand(Func<Task> command)
     {
-        _mongodbActions.Add(acion);
+        _mongodbCommands.Add(command);
     }
 
-    public IEnumerable<Task> ExcuteActions()
+    public IEnumerable<Task> ExcuteCommands()
     {
-        var actions = MongodbActions.Select(a => a());
+        var actions = MongodbCommands.Select(a => a());
         return actions;
     }
 

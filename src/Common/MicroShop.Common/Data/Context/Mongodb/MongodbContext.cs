@@ -6,9 +6,9 @@ public abstract class MongodbContext
 {
     #region Fields
 
-    protected IMongoDatabase _mongodbDatabase;
-    protected MongodbContextOption _contextOption;
-    protected IClientSessionHandle? _session;
+    private readonly IMongoDatabase _mongodbDatabase;
+    private readonly MongodbContextOption _contextOption;
+    private IClientSessionHandle? _session;
 
     #endregion
 
