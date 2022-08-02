@@ -1,7 +1,9 @@
 ﻿using JetBrains.Annotations;
 using MicroShop.Catalogs.Core.Contracts.Products;
+using MicroShop.Catalogs.Core.Domain.Common.ValueObjects;
 using MicroShop.Catalogs.Core.Domain.Products.Entities;
 using MicroShop.Catalogs.Data.MongoCommand.Common;
+using MicroShop.Common.Data.Context.Mongodb;
 using MicroShop.Common.Data.UnitOfWork;
 
 namespace MicroShop.Catalogs.Data.MongoCommand.Products;
@@ -10,5 +12,10 @@ public class ProductCommandRepository : MongodbBaseCommandRepository<Product, Ca
 {
     public ProductCommandRepository(CatalogCommandDbContext dbContext) : base(dbContext)
     {
+    }
+
+    public async Task<string> ConvertName(Name name)
+    {
+        return ValueConverter<Name, string>.ConvertToProvider(name);
     }
 }

@@ -1,7 +1,6 @@
 ﻿using MicroShop.Catalogs.Core.Contracts.Products;
 using MicroShop.Catalogs.Core.Domain.Products.Entities;
 using MicroShop.Common.ApplicationServices.Commands;
-using MicroShop.Common.ValueObjects;
 
 namespace MicroShop.Catalogs.Core.ApplicationServices.Products.Commands.CreateProduct;
 

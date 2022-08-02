@@ -1,5 +1,4 @@
-﻿using System.Linq.Expressions;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
@@ -7,9 +6,9 @@ public abstract class MongodbContext
 {
     #region Fields
 
-    private readonly IMongoDatabase _mongodbDatabase;
-    private readonly MongodbContextOption _contextOption;
-    private IClientSessionHandle? _session;
+    protected IMongoDatabase _mongodbDatabase;
+    protected MongodbContextOption _contextOption;
+    protected IClientSessionHandle? _session;
 
     #endregion
 
@@ -52,10 +51,12 @@ public abstract class MongodbContext
 
     #region Transactions
 
-    public void StartTransaction()
+    public IClientSession StartTransaction()
     {
         _session = _mongodbDatabase.Client.StartSession();
         _session.StartTransaction();
+
+        return _session;
     }
 
     public void AbortTransaction()

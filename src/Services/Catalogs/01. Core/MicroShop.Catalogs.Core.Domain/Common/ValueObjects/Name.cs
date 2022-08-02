@@ -1,12 +1,12 @@
 ﻿using Ardalis.GuardClauses;
 using MicroShop.Common.Exceptions;
-using MicroShop.Common.Utilities;
-using MicroShop.Common.ValueObjects;
 
 namespace MicroShop.Catalogs.Core.Domain.Common.ValueObjects;
 
 public class Name : BaseValueObject<Name>
 {
+    public static Name FromString(string name) => new(name);
+
     public string Value { get; set; }
 
     public override bool ObjectIsEqual(Name otherObject) => Value == otherObject.Value;
