@@ -8,7 +8,7 @@ namespace MicroShop.Common.Data.Repository;
 
 public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWork<TDbContext>, ICommandRepository<TEntity>
     where TEntity : AggregateRoot
-    where TDbContext : MongodbContext
+    where TDbContext : BaseMongoCommandDbContext
 {
     private readonly TDbContext _dbContext;
 

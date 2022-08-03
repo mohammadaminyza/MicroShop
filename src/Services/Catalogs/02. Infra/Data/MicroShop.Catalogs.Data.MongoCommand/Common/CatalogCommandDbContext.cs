@@ -5,9 +5,9 @@ using MongoDB.Driver;
 
 namespace MicroShop.Catalogs.Data.MongoCommand.Common;
 
-public class CatalogCommandDbContext : MongodbContext
+public class CatalogCommandDbContext : BaseMongoCommandDbContext
 {
-    public CatalogCommandDbContext(IMongoClient client, MongodbContextOption option) : base(client, option)
+    public CatalogCommandDbContext(MongodbContextOption option) : base(option)
     {
         new NameConversion();
     }

@@ -1,6 +1,6 @@
 ﻿namespace MicroShop.Common.Data.Context.Mongodb;
 
-public class MongodbTracker
+public class MongodbChangeTracker
 {
     #region Fields
 
@@ -11,7 +11,7 @@ public class MongodbTracker
 
     #region Ctor
 
-    public MongodbTracker()
+    public MongodbChangeTracker()
     {
         _mongodbCommands = new HashSet<Func<Task>>();
     }

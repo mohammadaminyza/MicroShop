@@ -2,7 +2,7 @@
 
 namespace MicroShop.Common.Data.UnitOfWork;
 
-public class MongodbUnitOfWork<TContext> : IUnitOfWork where TContext : MongodbContext
+public class MongodbUnitOfWork<TContext> : IUnitOfWork where TContext : BaseMongoCommandDbContext
 {
     private readonly TContext _dbContext;
 
