@@ -1,11 +1,11 @@
-﻿using MicroShop.Common.ApplicationServices.Commands;
+﻿using FluentValidation;
+using MicroShop.Common.ApplicationServices.Commands;
 using MicroShop.Common.Data.Repository;
 using MicroShop.Common.Data.UnitOfWork;
 using MicroShop.Common.IoC;
 using Microsoft.Extensions.DependencyInjection;
-using System.Reflection;
-using FluentValidation;
 using Microsoft.Extensions.DependencyModel;
+using System.Reflection;
 
 namespace MicroShop.Common.Extensions;
 

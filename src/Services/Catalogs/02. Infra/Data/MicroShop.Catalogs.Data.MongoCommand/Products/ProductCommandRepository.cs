@@ -1,10 +1,8 @@
-﻿using JetBrains.Annotations;
-using MicroShop.Catalogs.Core.Contracts.Products;
+﻿using MicroShop.Catalogs.Core.Contracts.Products;
 using MicroShop.Catalogs.Core.Domain.Common.ValueObjects;
 using MicroShop.Catalogs.Core.Domain.Products.Entities;
 using MicroShop.Catalogs.Data.MongoCommand.Common;
 using MicroShop.Common.Data.Context.Mongodb;
-using MicroShop.Common.Data.UnitOfWork;
 
 namespace MicroShop.Catalogs.Data.MongoCommand.Products;
 

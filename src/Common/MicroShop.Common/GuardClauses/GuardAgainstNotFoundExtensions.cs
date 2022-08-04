@@ -1,4 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using MicroShop.Common.GuardClauses;
+using MicroShop.Common.GuardClauses.Exceptions;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using JetBrainsInvokerParameterNameAttribute = JetBrains.Annotations.InvokerParameterNameAttribute;
 using JetBrainsNoEnumerationAttribute = JetBrains.Annotations.NoEnumerationAttribute;

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Ardalis.GuardClauses
+﻿namespace MicroShop.Common.GuardClauses.Exceptions
 {
     /// <summary>
     /// Represents error that occurs if a queried object by a particular key is null (not found).

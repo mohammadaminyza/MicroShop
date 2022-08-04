@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MicroShop.Common.GuardClauses;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using JetBrainsInvokerParameterNameAttribute = JetBrains.Annotations.InvokerParameterNameAttribute;
 using JetBrainsNotNullAttribute = JetBrains.Annotations.NotNullAttribute;

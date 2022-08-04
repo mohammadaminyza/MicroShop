@@ -4,7 +4,7 @@ namespace MicroShop.Common.Data.Context.Mongodb;
 
 public abstract class ValueConverter<TModel, TProvider>
 {
-    private static Dictionary<Type, Dictionary<Func<TModel, TProvider>, Func<TProvider, TModel>>> _conversions = new();
+    private static readonly Dictionary<Type, Dictionary<Func<TModel, TProvider>, Func<TProvider, TModel>>> _conversions = new();
 
     private readonly Func<TModel, TProvider> _convertToProvider;
     private readonly Func<TProvider, TModel> _convertFromProvider;

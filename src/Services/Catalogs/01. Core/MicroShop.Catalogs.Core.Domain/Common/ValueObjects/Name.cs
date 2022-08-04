@@ -1,5 +1,6 @@
 ﻿using Ardalis.GuardClauses;
 using MicroShop.Common.Exceptions;
+using MicroShop.Common.GuardClauses;
 
 namespace MicroShop.Catalogs.Core.Domain.Common.ValueObjects;
 

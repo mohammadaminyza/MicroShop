@@ -1,5 +1,4 @@
-﻿using MicroShop.Common.Data.Context;
-using MicroShop.Common.Data.Context.Mongodb;
+﻿using MicroShop.Common.Data.Context.Mongodb;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace MicroShop.Common.Extensions;

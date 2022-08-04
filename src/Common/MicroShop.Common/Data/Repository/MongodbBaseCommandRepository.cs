@@ -19,52 +19,52 @@ public class MongodbBaseCommandRepository<TEntity, TDbContext> : MongodbUnitOfWo
 
     public void Insert(TEntity entity)
     {
-        _dbContext.Set<TEntity>().InsertOne(entity);
+        _dbContext.Set<TEntity>().Add(entity);
     }
 
     public async Task InsertAsync(TEntity entity)
     {
-        await _dbContext.Set<TEntity>().InsertOneAsync(entity);
+        await _dbContext.Set<TEntity>().AddAsync(entity);
     }
 
     public void InsertRange(IEnumerable<TEntity> entities)
     {
-        _dbContext.Set<TEntity>().InsertMany(entities);
+        _dbContext.Set<TEntity>().AddRange(entities);
     }
 
     public async Task InsertRangeAsync(IEnumerable<TEntity> entities)
     {
-        await _dbContext.Set<TEntity>().InsertManyAsync(entities);
+        await _dbContext.Set<TEntity>().AddRangeAsync(entities);
     }
 
     public void Delete(Id id)
     {
-        _dbContext.Set<TEntity>().DeleteOne(e => e.Id.Equals(id));
+        _dbContext.Set<TEntity>().Remove(e => e.Id.Equals(id));
     }
 
     public void Delete(TEntity entity)
     {
-        _dbContext.Set<TEntity>().DeleteOne(e => e.Id.Equals(entity.Id));
+        _dbContext.Set<TEntity>().Remove(e => e.Id.Equals(entity.Id));
     }
 
-    public void DeleteGraph(long id)
+    public void DeleteGraph(Id id)
     {
-        throw new NotSupportedException();
+        Delete(id);
     }
 
     public void DeleteRange(IEnumerable<TEntity> entities)
     {
-        _dbContext.Set<TEntity>().DeleteMany(e => entities.Any(a => a.Id.Equals(e.Id)));
+        _dbContext.Set<TEntity>().RemoveRange(e => entities.Any(a => a.Id.Equals(e.Id)));
     }
 
     public TEntity GetGraph(Id id)
     {
-        return _dbContext.Set<TEntity>().FindSync(e => e.Id.Equals(id)).FirstOrDefault();
+        throw new NotImplementedException();
     }
 
-    public async Task<TEntity> GetGraphAsync(Id id)
+    public Task<TEntity> GetGraphAsync(Id id)
     {
-        return await (await _dbContext.Set<TEntity>().FindAsync(e => e.Id.Equals(id))).FirstOrDefaultAsync();
+        throw new NotImplementedException();
     }
 
     public bool Exists(Expression<Func<TEntity, bool>> expression)

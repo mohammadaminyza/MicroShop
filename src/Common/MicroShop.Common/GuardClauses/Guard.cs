@@ -1,6 +1,6 @@
 ﻿using JetBrainsNotNullAttribute = JetBrains.Annotations.NotNullAttribute;
 
-namespace Ardalis.GuardClauses
+namespace MicroShop.Common.GuardClauses
 {
     /// <summary>
     /// Simple interface to provide a generic mechanism to build guard clause extension methods from.

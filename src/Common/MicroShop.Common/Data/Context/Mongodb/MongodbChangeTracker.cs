@@ -5,7 +5,7 @@ public class MongodbChangeTracker
     #region Fields
 
     private readonly HashSet<Func<Task>> _mongodbCommands;
-    public HashSet<Func<Task>> MongodbCommands=> _mongodbCommands;
+    public HashSet<Func<Task>> MongodbCommands => _mongodbCommands;
 
     #endregion
 

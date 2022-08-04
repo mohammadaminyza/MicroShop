@@ -45,7 +45,7 @@ public class EntityFrameWorkBaseCommandRepository<TEntity, TDbContext> : IComman
         throw new NotImplementedException();
     }
 
-    public void DeleteGraph(long id)
+    public void DeleteGraph(Id id)
     {
         throw new NotImplementedException();
     }

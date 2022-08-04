@@ -1,7 +1,7 @@
-﻿using System.Linq.Expressions;
-using MicroShop.Common.Data.UnitOfWork;
+﻿using MicroShop.Common.Data.UnitOfWork;
 using MicroShop.Common.Entities;
 using MicroShop.Common.ValueObjects;
+using System.Linq.Expressions;
 
 namespace MicroShop.Common.Data.Repository;
 
@@ -17,7 +17,7 @@ public interface ICommandRepository<TEntity> : IUnitOfWork
     void Delete(Id id);
     void Delete(TEntity entity);
 
-    void DeleteGraph(long id);
+    void DeleteGraph(Id id);
 
     /// <summary>
     /// یک شی را دریافت کرده و از دیتابیس حذف می‌کند
