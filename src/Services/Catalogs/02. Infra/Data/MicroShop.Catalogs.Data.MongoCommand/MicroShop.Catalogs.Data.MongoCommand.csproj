@@ -16,11 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Products\Configs\" />
-		<Folder Include="Products\Configs\Convertors\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<Using Include="MicroShop.Common.Data.Repository" />
 	</ItemGroup>
 

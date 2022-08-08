@@ -5,5 +5,4 @@ namespace MicroShop.Catalogs.Core.Contracts.Products;
 
 public interface IProductCommandRepository : ICommandRepository<Product>
 {
-    Task<string> ConvertName(Name name);
 }

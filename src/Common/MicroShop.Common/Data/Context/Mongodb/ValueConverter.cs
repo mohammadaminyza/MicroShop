@@ -2,45 +2,73 @@
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
-public abstract class ValueConverter<TModel, TProvider>
+internal class ValueConverter<TModel, TProvider>
 {
-    private static readonly Dictionary<Type, Dictionary<Func<TModel, TProvider>, Func<TProvider, TModel>>> _conversions = new();
+    private static readonly Dictionary<Type, ValueConverterAction<TModel, TProvider>> _conversions = new();
 
     private readonly Func<TModel, TProvider> _convertToProvider;
     private readonly Func<TProvider, TModel> _convertFromProvider;
-    protected ValueConverter(
+    public ValueConverter(
+           Type entityType,
+           string propertyName,
            Expression<Func<TModel, TProvider>> convertToProviderExpression,
            Expression<Func<TProvider, TModel>> convertFromProviderExpression)
     {
         _convertToProvider = convertToProviderExpression.Compile();
         _convertFromProvider = convertFromProviderExpression.Compile();
 
-        AddConvertion(_convertToProvider, _convertFromProvider);
+        AddConvertion(entityType,
+            propertyName,
+            _convertToProvider,
+            _convertFromProvider);
     }
 
-    public static TProvider ConvertToProvider(TModel model)
+    public static TProvider ConvertToProvider(
+        Type entityType,
+        string propertyName,
+        TModel model)
     {
-        var convertorKey = _conversions.FirstOrDefault(c => c.Key == typeof(TModel));
-        var convertor = convertorKey.Value.FirstOrDefault().Key;
-        var conversion = convertor.Invoke(model);
+        var convertor = _conversions.FirstOrDefault(c => c.Key == entityType &&
+            c.Value.PropertyName == propertyName);
 
-        return conversion;
+        var convert = convertor.Value.ToProvider;
+        var convertedValue = convert(model);
+
+        return convertedValue;
     }
 
 
-    private void AddConvertion(Func<TModel, TProvider> modelConversion, Func<TProvider, TModel> providerConversion)
+    private void AddConvertion(
+        Type entityType,
+        string propertyName,
+        Func<TModel, TProvider> modelConversion,
+        Func<TProvider, TModel> providerConversion)
     {
-        if (!_conversions.Any(c => c.Key == typeof(TModel)))
+        if (!_conversions.Any(c => c.Key == entityType && c.Value.PropertyName == propertyName))
         {
-            var valueConversion = new Dictionary<Func<TModel, TProvider>, Func<TProvider, TModel>>();
-            valueConversion.Add(modelConversion, providerConversion);
+            ValueConverterAction<TModel, TProvider> valueConversion = new(
+                modelConversion,
+                providerConversion,
+                propertyName);
 
-            _conversions.Add(typeof(TModel), valueConversion);
+            _conversions.Add(entityType, valueConversion);
         }
-        else
-        {
-            var keyConversion = _conversions.First(c => c.Key == typeof(TModel));
-            keyConversion.Value.Add(modelConversion, providerConversion);
-        }
+    }
+}
+
+internal class ValueConverterAction<TModel, TProvider>
+{
+    public Func<TModel, TProvider> ToProvider { get; set; }
+    public Func<TProvider, TModel> FromProvider { get; set; }
+    public string PropertyName { get; set; }
+
+    public ValueConverterAction(
+        Func<TModel, TProvider> toProvider,
+        Func<TProvider, TModel> fromProvider,
+        string propertyName)
+    {
+        ToProvider = toProvider;
+        FromProvider = fromProvider;
+        PropertyName = propertyName;
     }
 }

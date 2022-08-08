@@ -11,9 +11,4 @@ public class ProductCommandRepository : MongodbBaseCommandRepository<Product, Ca
     public ProductCommandRepository(CatalogCommandDbContext dbContext) : base(dbContext)
     {
     }
-
-    public async Task<string> ConvertName(Name name)
-    {
-        return ValueConverter<Name, string>.ConvertToProvider(name);
-    }
 }

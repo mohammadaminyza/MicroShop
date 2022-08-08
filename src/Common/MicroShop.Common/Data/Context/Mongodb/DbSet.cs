@@ -6,7 +6,7 @@ public class DbSet<TEntity>
 {
     private readonly IMongoCollection<TEntity> _collection;
     private readonly MongodbContext _context;
-    public IMongoCollection<TEntity> Collection => _collection;
+    protected IMongoCollection<TEntity> Collection => _collection;
 
     public DbSet(MongodbContext context, IMongoCollection<TEntity> collection)
     {
