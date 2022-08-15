@@ -6,18 +6,16 @@ namespace MicroShop.Common.Data.Context.Mongodb;
 /// </summary>
 public class MongodbContextOption
 {
-    private readonly MongoUrl? _mongoUrl;
-
-    public string? ConnectionString { get; set; }
-    public string? DatabaseName => _mongoUrl?.DatabaseName;
+    public string ConnectionString { get; set; }
+    public string? DatabaseName => MongoUrl.Create(ConnectionString)?.DatabaseName;
 
     internal MongodbContextOption()
     {
+        ConnectionString = string.Empty;
     }
 
-    public MongodbContextOption(string connectionString, MongoUrl mongoUrl)
+    public MongodbContextOption(string connectionString)
     {
         ConnectionString = connectionString;
-        _mongoUrl = mongoUrl;
     }
 }

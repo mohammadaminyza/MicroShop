@@ -3,6 +3,8 @@ using System.Reflection;
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
+//Todo Add More Query Methods
+//Todo Command Should Save in Bson In Change Tracker
 public abstract class MongodbContext
 {
     #region Fields
@@ -18,11 +20,11 @@ public abstract class MongodbContext
 
     protected MongodbContext(MongodbContextOption option)
     {
-        var mongodbClient = new MongoClient(option.ConnectionString);
-        var databaseName = MongoUrl.Create(option.ConnectionString).DatabaseName;
-
-        _mongodbDatabase = mongodbClient.GetDatabase(databaseName);
         _contextOption = option;
+
+        var mongodbClient = new MongoClient(option.ConnectionString);
+
+        _mongodbDatabase = mongodbClient.GetDatabase(option.DatabaseName);
         _mongodbTracker = new();
 
         AddPropertiesMongodbCollection();
@@ -30,11 +32,10 @@ public abstract class MongodbContext
 
     protected MongodbContext(IMongoClient client, MongodbContextOption option)
     {
-        var databaseName = MongoUrl.Create(option.ConnectionString).DatabaseName;
-
-        _mongodbDatabase = client.GetDatabase(databaseName);
         _contextOption = option;
         _mongodbTracker = new();
+
+        _mongodbDatabase = client.GetDatabase(option.DatabaseName);
 
         AddPropertiesMongodbCollection();
     }

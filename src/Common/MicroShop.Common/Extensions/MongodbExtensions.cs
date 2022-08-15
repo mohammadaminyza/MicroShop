@@ -14,7 +14,6 @@ public static class MongodbExtensions
         var mongodbOptions = new MongodbContextOption();
         options(mongodbOptions);
 
-        services.AddSingleton<MongoUrl>(u => new MongoUrl(mongodbOptions.ConnectionString));
         services.AddTransient<IMongoClient>(c => new MongoClient(mongodbOptions.ConnectionString));
         services.AddSingleton<MongodbContextOption>(p => mongodbOptions);
         services.AddTransient<TDbContext>();
