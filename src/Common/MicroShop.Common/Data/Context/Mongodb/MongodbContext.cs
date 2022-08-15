@@ -331,6 +331,9 @@ public abstract class MongodbContext
 
     #region Private Methods
 
+    /// <summary>
+    /// Set DbSet value for context properties
+    /// </summary>
     private void AddPropertiesMongodbCollection()
     {
         var properties = this.GetType()

@@ -2,6 +2,11 @@
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
+/// <summary>
+/// Value conversion useful for value objects
+/// </summary>
+/// <typeparam name="TModel"></typeparam>
+/// <typeparam name="TProvider"></typeparam>
 internal class ValueConverter<TModel, TProvider>
 {
     private static readonly Dictionary<Type, ValueConverterAction<TModel, TProvider>> _conversions = new();
@@ -56,6 +61,11 @@ internal class ValueConverter<TModel, TProvider>
     }
 }
 
+/// <summary>
+/// Standard structure for saving value conversions
+/// </summary>
+/// <typeparam name="TModel"></typeparam>
+/// <typeparam name="TProvider"></typeparam>
 internal class ValueConverterAction<TModel, TProvider>
 {
     public Func<TModel, TProvider> ToProvider { get; set; }

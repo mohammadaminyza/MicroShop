@@ -2,6 +2,11 @@
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
+/// <summary>
+/// a DbSet can use for excuting queries in Linq
+/// </summary>
+/// <typeparam name="TEntity"></typeparam>
+//Todo Add More Methods
 public class DbSet<TEntity>
 {
     private readonly IMongoCollection<TEntity> _collection;
@@ -144,5 +149,4 @@ public class DbSet<TEntity>
     }
 
     #endregion
-
 }

@@ -2,6 +2,10 @@
 
 namespace MicroShop.Common.Data.Context.Mongodb;
 
+/// <summary>
+/// FluentApi property selection
+/// </summary>
+/// <typeparam name="TEntity"></typeparam>
 public class EntityTypeBuilder<TEntity>
 {
     public PropertyTypeBuilder<TEntity, TPropertyType> Property<TPropertyType>(Expression<Func<TEntity, TPropertyType>> property)
@@ -20,6 +24,11 @@ public class EntityTypeBuilder<TEntity>
     }
 }
 
+/// <summary>
+/// FluentApi property methods
+/// </summary>
+/// <typeparam name="TEntity"></typeparam>
+/// <typeparam name="TPropertyType"></typeparam>
 public class PropertyTypeBuilder<TEntity, TPropertyType>
 {
     private readonly string _propertyName;
@@ -29,17 +38,20 @@ public class PropertyTypeBuilder<TEntity, TPropertyType>
         _propertyName = propertyName;
     }
 
+    /// <summary>
+    /// Conversion type to other type
+    /// It's mostly useful in value objects
+    /// </summary>
+    /// <typeparam name="TOutput"></typeparam>
+    /// <param name="provider"></param>
+    /// <param name="model"></param>
+    /// <returns></returns>
     public PropertyTypeBuilder<TEntity, TPropertyType> HasConversion<TOutput>(
         Expression<Func<TPropertyType, TOutput>> provider,
         Expression<Func<TOutput, TPropertyType>> model)
     {
         new ValueConverter<TOutput, TPropertyType>(typeof(TEntity), _propertyName, model, provider);
 
-        return this;
-    }
-
-    public PropertyTypeBuilder<TEntity, TPropertyType> IsRequired()
-    {
         return this;
     }
 }

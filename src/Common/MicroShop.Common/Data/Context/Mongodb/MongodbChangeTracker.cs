@@ -1,5 +1,8 @@
 ﻿namespace MicroShop.Common.Data.Context.Mongodb;
 
+/// <summary>
+/// Saving changes on database
+/// </summary>
 public class MongodbChangeTracker
 {
     #region Fields

@@ -9,7 +9,6 @@ public class ProductConfig : IEntityTypeConfiguration<Product>
     public void Configure(EntityTypeBuilder<Product> builder)
     {
         builder.Property(p => p.Name)
-            .HasConversion(n => n.Value, n => Name.FromString(n))
-            .IsRequired();
+            .HasConversion(n => n.Value, n => Name.FromString(n));
     }
 }

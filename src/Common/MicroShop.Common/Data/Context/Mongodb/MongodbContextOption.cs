@@ -1,16 +1,23 @@
-﻿namespace MicroShop.Common.Data.Context.Mongodb;
+﻿using MongoDB.Driver;
+namespace MicroShop.Common.Data.Context.Mongodb;
 
+/// <summary>
+/// Stuff That Context Needs For Launching Like ConnectionString etc.
+/// </summary>
 public class MongodbContextOption
 {
-    public string ConnectionString { get; set; }
+    private readonly MongoUrl? _mongoUrl;
 
-    private MongodbContextOption()
+    public string? ConnectionString { get; set; }
+    public string? DatabaseName => _mongoUrl?.DatabaseName;
+
+    internal MongodbContextOption()
     {
-        ConnectionString = string.Empty;
     }
 
-    public MongodbContextOption(string connectionString)
+    public MongodbContextOption(string connectionString, MongoUrl mongoUrl)
     {
         ConnectionString = connectionString;
+        _mongoUrl = mongoUrl;
     }
 }
