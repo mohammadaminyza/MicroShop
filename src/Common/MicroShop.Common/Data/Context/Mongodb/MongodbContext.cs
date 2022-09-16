@@ -10,6 +10,8 @@ public abstract class MongodbContext
     #region Fields
 
     private readonly IMongoDatabase _mongodbDatabase;
+    //TODO Make Extension
+    private readonly IBsonDocumentService _bsonDocumentService;
     private readonly MongodbContextOption _contextOption;
     private readonly MongodbChangeTracker _mongodbTracker;
     private IClientSessionHandle? _session;
@@ -26,6 +28,7 @@ public abstract class MongodbContext
 
         _mongodbDatabase = mongodbClient.GetDatabase(option.DatabaseName);
         _mongodbTracker = new();
+        _bsonDocumentService = new BsonDocumentService();
 
         AddPropertiesMongodbCollection();
     }
@@ -34,6 +37,7 @@ public abstract class MongodbContext
     {
         _contextOption = option;
         _mongodbTracker = new();
+        _bsonDocumentService = new BsonDocumentService();
 
         _mongodbDatabase = client.GetDatabase(option.DatabaseName);
 
@@ -99,6 +103,7 @@ public abstract class MongodbContext
     /// <returns></returns>
     public DbSet<TEntity> Set<TEntity>()
     {
+        //Todo fix first
         var entity = this.GetType().GetProperties().FirstOrDefault(p => p.GetType() == typeof(DbSet<TEntity>));
         var dbset = (DbSet<TEntity>?)entity?.GetValue(null);
 
@@ -139,6 +144,8 @@ public abstract class MongodbContext
     /// <param name="collection">mongodb collection</param>
     internal Task AddAsync<TEntity>(TEntity entity, IMongoCollection<TEntity> collection)
     {
+        var bson = _bsonDocumentService.EntityToBsonWithEntityConfiguration(entity);
+
         var command = async () => { await collection.InsertOneAsync(entity); };
         _mongodbTracker.AddCommand(command);
 
@@ -363,11 +370,11 @@ public abstract class MongodbContext
 
     private string? GetCollectionName<TEntity>()
     {
-        return this.GetType().GetProperties()?.FirstOrDefault(p => p.PropertyType == typeof(IMongoCollection<TEntity>))?.Name;
+        return this.GetType().GetProperties()?.FirstOrDefault(p => p.PropertyType == typeof(DbSet<TEntity>))?.Name;
     }
     private string? GetCollectionName(Type type)
     {
-        return this.GetType().GetProperties()?.FirstOrDefault(p => p.PropertyType == typeof(IMongoCollection<>).MakeGenericType(type))?.Name;
+        return this.GetType().GetProperties()?.FirstOrDefault(p => p.PropertyType == typeof(DbSet<>).MakeGenericType(type))?.Name;
     }
 
     private object? GetMongodbCollection(Type type)
